@@ -25,7 +25,7 @@ If you want to host your own instance of ShortLink, follow these steps:
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/shortlink.git
+   git clone https://github.com/koirherianto/Shortlink
    cd shortlink
    ```
 2. Install dependencies:
