@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Models\Link;
+
+use App\Models\Link;
 use Illuminate\Http\Request;
-use Nette\Utils\Strings;
 
-class LinkController extends Controller{
-
+class LinkController extends Controller
+{
     public function index()
     {
         return view('index');
@@ -14,76 +14,74 @@ class LinkController extends Controller{
 
     public function requestLink()
     {
+        $link = request('link');
+
+        // Tambahkan protokol jika tidak ada
+        if (!preg_match("~^(?:f|ht)tps?://~i", $link)) {
+            $link = "https://" . $link;
+        }
+
+        // Validasi URL
+        if (!filter_var($link, FILTER_VALIDATE_URL)) {
+            return back()->with('error', 'Invalid URL');
+        }
 
         $last = Link::max('id');
+        $lastLink = Link::where('id', $last)->first();
 
-        $last = Link::where('id',$last)->first()->sort_link;
-
-        $this->increment($last);
+        if (!$lastLink) {
+            $last = 'a';
+        } else {
+            $last = $lastLink->sort_link;
+            $this->increment($last);
+        }
 
         $result = [
-            'link' => request('link'),
+            'link' => $link,
             'sort_link' => $last,
             'view' => 0
         ];
 
-        if(request('link')){
-            Link::create($result);
-        }
+        Link::create($result);
 
-        return view('index',[
-            'sortLink' => $last,
-            'link' => request('link')
+        return view('index', [
+            'sortLink' => url($last),
+            'link' => $link
         ]);
     }
 
-    public function see(Link $link){
-        $update = [
-            'view' => $link->view + 1
-        ];
-
-        Link::where('id',$link->id)->update($update);
+    public function see(Link $link)
+    {
+        $link->increment('view');
         return redirect($link->link);
     }
 
-    public function view(Link $link){
-        $view = link::where('id',$link->id)->get()[0];
-        return view('view',[
-            'view' => $view
-        ]);
-    }
-    
-    public function increment(&$string){
-        $last_char=substr($string,-1);
-        $rest=substr($string, 0, -1);
-        switch ($last_char) {
-        case '':
-            $next= 'a';
-            break;
-        case 'z':
-            $next= '0';
-            break;
-        case 'Z':
-            $next= '0';
-            break;
-        case '9':
-            $this->increment($rest);
-            $next= 'a';
-            break;
-        default:
-            $next= ++$last_char;
-        }
-        $string=$rest.$next;
+    public function view(Link $link)
+    {
+        return view('view', ['view' => $link]);
     }
 
-    public function hasCapital(String $string){
-        $strings = str_split($string);
-        foreach($strings as $s){
-            if(ctype_upper($s)){
-                
-                return true;
-            }
+    public function increment(&$string)
+    {
+        $last_char = substr($string, -1);
+        $rest = substr($string, 0, -1);
+        switch ($last_char) {
+            case '':
+                $next = 'a';
+                break;
+            case 'z':
+                $next = '0';
+                break;
+            case 'Z':
+                $next = '0';
+                break;
+            case '9':
+                $this->increment($rest);
+                $next = 'a';
+                break;
+            default:
+                $next = ++$last_char;
         }
-        return false;
+        $string = $rest . $next;
     }
 }

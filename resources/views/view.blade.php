@@ -27,7 +27,7 @@
         <h1 class="text-center text-fluid">{{ $view->view }}</h1>
 
         <h4 class="text-center text-fluid">Tambahkan /view di akhir url untuk melihat jumlah view</h4>
-        <h4 class="text-center text-fluid">Contoh: {{ $_ENV['THIS_WEBSITE'] . '/'.$view->sort_link}}/<b>view</b></h4>
+        <h4 class="text-center text-fluid">Contoh: {{ url($view->sort_link)}}/<b>view</b></h4>
         </div>
     </div>
     
