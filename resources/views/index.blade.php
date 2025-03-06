@@ -58,10 +58,10 @@
         <div class="py-5">
             <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="fs-5 mb-4">Simple shortlink, can be used by everyone & fast. You can use the API for free.</p>
+                <p class="fs-5 mb-4">Simple shortlink, can be used by everyone & fast. You can use for free.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-outline-info btn-lg px-4 fw-bold">Short Link API</button>
-                    <button type="button" class="btn btn-outline-light btn-lg px-4">About Me</button>
+                    <a href="https://github.com/koirherianto/Shortlink" class="btn btn-outline-info btn-lg px-4 fw-bold">Github</button>
+                    <a href="https://www.linkedin.com/in/koirherto/" class="btn btn-outline-light btn-lg px-4">About Me</a>
                 </div>
             </div>
         </div>
