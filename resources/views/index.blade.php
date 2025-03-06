@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Sort Link">
-    <meta name="author" content="Your Name">
+    <meta name="description" content="ShortLink is a free and easy-to-use URL shortener. No login required, completely free, and fast! Shorten your long URLs with ease.">
+    <meta name="keywords" content="URL shortener, free shortlink, shorten URLs, short URL, fast link shortener">
+    <meta name="author" content="koir herianto">
     <title>Shortlink</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
