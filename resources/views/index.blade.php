@@ -8,6 +8,23 @@
     <meta name="author" content="koir herianto">
     <title>Shortlink</title>
 
+    <!-- Open Graph (For Social Media Sharing) -->
+    <meta property="og:title" content="Sot.lat - Free & Easy URL Shortener">
+    <meta property="og:description" content="Sot.lat lets you shorten URLs for free, without login! Quick, easy, and reliable.">
+    <meta property="og:image" content="https://www.sot.lat/shortlink-preview.jpg">
+    <meta property="og:url" content="https://www.sot.lat/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sot.lat - Free & Easy URL Shortener">
+    <meta name="twitter:description" content="Sot.lat lets you shorten URLs for free, no login required!">
+    <meta name="twitter:image" content="https://www.sot.lat/shortlink-preview.jpg">
+    <meta name="twitter:site" content="@yourtwitterhandle">
+
+    <!-- Canonical URL -->
+<link rel="canonical" href="https://www.sot.lat/">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
